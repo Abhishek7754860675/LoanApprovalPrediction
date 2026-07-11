@@ -107,7 +107,7 @@ def get_font(size: int, bold: bool = False):
 # =========================================================================
 @st.cache_resource(show_spinner=False)
 def load_model():
-    base_dir = Path(__file__).resolve().parent.parent
+    base_dir = Path(__file__).resolve().parent
     model_path = base_dir / 'loan_model.pkl'
     scaler_path = base_dir / 'scaler.pkl'
     model = joblib.load(model_path)
