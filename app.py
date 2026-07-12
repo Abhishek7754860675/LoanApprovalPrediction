@@ -513,7 +513,7 @@ def render_step2():
     with st.form("step2_form"):
         d = st.session_state.data
         applicant_income = st.number_input(
-            "Applicant's Monthly Income (₹)", min_value=0, step=500,
+            "Applicant's Monthly Income (₹)", min_value=0, step=5000,
             value=int(d.get("ApplicantIncome", 5000)),
         )
         coapplicant_income = st.number_input(
@@ -524,7 +524,7 @@ def render_step2():
             "Loan Amount Requested (₹)", min_value=0, step=5000,
             value=int(d.get("LoanAmountActual", 120000)),
         )
-        term_default = d.get("Loan_Amount_Term", 360)
+        term_default = d.get("Loan_Amount_Term", 36)
         term_labels = [f"{t} months ({t // 12} yrs)" for t in LOAN_TERMS]
         term_index = LOAN_TERMS.index(term_default) if term_default in LOAN_TERMS else LOAN_TERMS.index(360)
         loan_term_label = st.selectbox("Loan Tenure", term_labels, index=term_index)
